@@ -1,4 +1,4 @@
-# vuetest
+# Vue lecture 1
 
 ## Project setup
 ```
