@@ -1,6 +1,7 @@
 <template>
   <h1>Stock list</h1>
   <div class="row">
+    <!-- Individual stocks -->
     <div class="col-md-4 mt-4" v-for="stock in stocks" :key="stock.name">
       <div class="card">
         <div class="card-body">
@@ -15,6 +16,7 @@
         </div>
       </div>
     </div>
+    <!-- End of individual stocks -->
   </div>
 </template>
 
