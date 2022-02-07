@@ -1,24 +1,21 @@
 <template>
   <h1>Stock list</h1>
-  <p>This is just a test component</p>
-  <table>
-    <thead>
-      <th>Name</th>
-      <th>Price</th>
-    </thead>
-    <tbody v-for="stock in stocks" :key="stock.name">
-      <td>{{ stock.name }}</td>
-      <td
-        :class="{
-          down: stock.price < stock.previousPrice,
-          up: stock.price > stock.previousPrice,
-        }"
-      >
-        {{ stock.currency }} {{ stock.price }}
-      </td>
-    </tbody>
-  </table>
-  <button type="button" @click="updatePrices">Update</button>
+  <div class="row">
+    <div class="col-md-4 mt-4" v-for="stock in stocks" :key="stock.name">
+      <div class="card">
+        <div class="card-body">
+          <td>{{ stock.name }}</td>
+          <span
+            :class="{
+              down: stock.price < stock.previousPrice,
+              up: stock.price > stock.previousPrice,
+            }"
+            >{{ stock.currency }} {{ stock.price.toFixed(4) }}</span
+          >
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -35,7 +32,6 @@ export default {
       portfolio: [],
     };
   },
-
   methods: {
     updatePrices() {
       this.stocks.forEach((stock) => {
@@ -46,7 +42,7 @@ export default {
         }
       });
     },
-  },
+  },  
   mounted() {
     setInterval(() => {
       this.updatePrices();
@@ -55,7 +51,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .up {
   color: green;
 }

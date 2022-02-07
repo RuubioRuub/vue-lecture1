@@ -1,16 +1,18 @@
 <template>
-  <StockList/>
+  <div class="container">
+    <StockList />
+  </div>
 </template>
 
 <script>
-import StockList from './components/StockList.vue'
+import StockList from "./components/StockList.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    StockList
-  }
-}
+    StockList,
+  },
+};
 </script>
 
 <style>
