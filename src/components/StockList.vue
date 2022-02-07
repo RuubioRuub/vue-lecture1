@@ -1,28 +1,22 @@
 <template>
   <h1>Stock list</h1>
   <div class="row">
-    <!-- Individual stocks -->
-    <div class="col-md-4 mt-4" v-for="stock in stocks" :key="stock.name">
-      <div class="card">
-        <div class="card-body">
-          <td>{{ stock.name }}</td>
-          <span
-            :class="{
-              down: stock.price < stock.previousPrice,
-              up: stock.price > stock.previousPrice,
-            }"
-            >{{ stock.currency }} {{ stock.price.toFixed(4) }}</span
-          >
-        </div>
-      </div>
-    </div>
-    <!-- End of individual stocks -->
+    <stock-item v-for="stock in stocks" :key="stock.name" 
+    :name="stock.name" :currency="stock.currency" :price="stock.price" 
+    :previousPrice="stock.previousPrice" />
   </div>
 </template>
 
 <script>
+import StockItem from './StockItem.vue';
+
 export default {
+  
   name: "StockList",
+  components: {
+    StockItem
+  },
+
   data() {
     return {
       stocks: [
@@ -54,10 +48,5 @@ export default {
 </script>
 
 <style scoped>
-.up {
-  color: green;
-}
-.down {
-  color: red;
-}
+
 </style>
