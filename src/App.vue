@@ -2,6 +2,7 @@
   <div class="container">
     <StockList />
   </div>
+  <router-view></router-view>   <!-- put this where you want to display your views, usually this is App.vue -->
 </template>
 
 <script>
